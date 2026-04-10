@@ -160,7 +160,9 @@ class EnhancedAutoRenamer:
         
         # Replace all placeholders
         for placeholder, value in placeholders.items():
-            template = template.replace(placeholder, value)
+            if template is None:
+                return None  # or return a default, or raise a user-friendly error
+        template = template.replace(placeholder, value)
         
         # Clean up any empty parentheses or brackets
         template = re.sub(r'\(\s*\)', '', template)  # Remove empty parentheses
