@@ -165,7 +165,7 @@ async def upload_doc(bot, update):
     # Apply user's format template
     new_name = renamer.apply_format_template(info, format_template)
     if new_name is None:
-        await query.answer("Please set a format template first!", show_alert=True)
+        await update.answer("Please set a format template first!", show_alert=True)
         return
     
     # Add extension if not present
